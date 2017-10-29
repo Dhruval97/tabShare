@@ -8,7 +8,7 @@
 	if($link == 'download')
 	{
 		$file = 'tabShare.zip';
-		
+
 		if (file_exists($file)) {
 			// Setting Response Headers
 			header('Content-Description: File Transfer');
@@ -26,7 +26,6 @@
 	{
 		header('Location: https://github.com/iampiyushgupta/tabShare');
 	}
-	
 	// connect to the database with valida credentials
 	$connection = mysqli_connect('hostname','username','password','dbname');
 	if(isset($data) && !empty($data))
@@ -48,8 +47,7 @@
 			$query = mysqli_query($connection, "insert into map_data values('$randomString', '$data')");
 
 			echo 'tabshare.tk/'.$randomString;
-		}
-		
+		}		
 	}
 	else if(isset($link) && !empty($link))
 	{
@@ -60,7 +58,6 @@
 	{
 		echo '<a href="./download" target="_blank">Download extension</a>';
 	}
-
 	// function to sanitize user input
 	function sanitize($data)
 	{
@@ -69,7 +66,6 @@
 	   $data = htmlspecialchars($data);
 	   return $data;
 	}
-
 	// function to check if the shortened link already exists
 	function exists($string)
 	{
@@ -86,7 +82,6 @@
 			return false;
 		}
 	}
-
 	// function to generate shortened link
 	function generateRandomString()
 	{
